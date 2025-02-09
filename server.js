@@ -12,7 +12,7 @@ const {clerkMiddleware} = require("@clerk/express")
 
 //middleware
 app.use(cors()); // allow all origins
-app.use(express.json()); // allow json data
+app.use(express.json({limit: "10mb"})); // allow json data
 app.use(morgan("dev")); // show log in console
 app.use(clerkMiddleware())
 
