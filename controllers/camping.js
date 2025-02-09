@@ -6,25 +6,24 @@ exports.listCamping = async (req, res) => {
     const campings = await prisma.landmark.findMany();
 
     res.json({result: campings });
-    res.send("Hello List");
+    // res.send("Hello List");
   } catch (error) {
     console.log(error.message);
-    res.status(500).json({ massage: "server error" });
+    res.status(500).json({ massage: "server error"});
   }
 };
 
 exports.readCamping = async (req, res) => {
   try {
     //code body
-    const {id} = req.params
-    
+    const { id } = req.params;
     const camping = await prisma.landmark.findFirst({
       where:{
-        id:Number(id),
+        id: Number (id),
       }
     })
 
-    res.json({result:camping });
+    res.json({result: camping });
   } catch (error) {
     console.log(error.message);
     res.status(500).json({ massage: "server error" });
